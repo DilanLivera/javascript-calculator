@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap');
+
+body {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.Calculator {
+  font-family: "Montserrat";
+  border: 2px solid lightblue;
+  width: 300px;
+  margin: 0 auto;
+
+  .Calculator-display {
+    display: flex;
+    flex-direction: column;
+
+    h3 {
+      display: inline;
+      text-align: right;
+      margin: 2px 5px;;
+    }
+  }
+
+}
+
+.Key {
+  font-family: inherit;
+  width: 70px;
+  height: 50px;
+}
+
+#ac {
+  width: 146px;
+}
+
+#equal {
+  height: 100px;
+}
+
+#zero {
+  width: 146px;
+}
