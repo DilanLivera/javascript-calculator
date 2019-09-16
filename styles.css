@@ -16,8 +16,10 @@ body {
 .Calculator {
   font-family: "Montserrat";
   border: 2px solid lightblue;
-  width: 300px;
-  margin: 0 auto;
+  width: 308px;
+  padding-bottom: 2px;
+  background-color: black;
+  color: #fff;
 }
 
 .Calculator .Calculator-display {
@@ -34,23 +36,37 @@ body {
   display: inline;
   text-align: right;
   margin: 2px 5px;
+  font-size: 1.4em;
+  font-weight: 400;
 }
 
-.Key {
+.Calculator table {
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+.Calculator .Key {
   font-family: inherit;
-  width: 70px;
+  font-size: 1.2em;
+  width: 73px;
   height: 50px;
+  background-color: lightslategray;
+  border: 1px solid black;
+  padding: 0;
+  color: #fff;
 }
 
 #clear {
-  width: 146px;
+  width: 148px;
+  background-color: brown;
 }
 
 #equal {
   height: 100px;
+  background-color: steelblue;
 }
 
 #zero {
-  width: 146px;
+  width: 148px;
 }
 /*# sourceMappingURL=styles.css.map */
