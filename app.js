@@ -10,7 +10,7 @@ class Calculator extends React.Component {
   constructor(props) {
     super(props);
     this.state= {
-      calculation: "0",
+      calculation: "",
       output: 0,
       justCalculated: false
     }
@@ -21,16 +21,36 @@ class Calculator extends React.Component {
 
   handleClick(evt) {    
     let { calculation,output, justCalculated } = this.state;
-    calculation = (justCalculated || calculation === "0") ? evt.target.innerText : calculation + evt.target.innerText;
-    if(justCalculated) {
-      output = "0";
-      justCalculated = false;
+    // get the user entered number or operator
+    let userInput =  evt.target.innerText;
+    let newOutput = 0, newCalculation = "";
+
+    if(+userInput !== 0 || output !== 0) {
+      // if its a operator
+      if(isNaN(userInput)){
+        // set output display value to the operator
+        newOutput = userInput;
+      } else { // if its a number
+        // check if the current output value
+        // if the current out put value is a operator
+        if(isNaN(output)) {
+          // set output to user entered number
+          newOutput = +userInput;
+        } else { // else 
+          // add user entered number to output value
+          newOutput = (output  === 0) ? +userInput : +(output + userInput);
+        }
+      }
+      
+      if(isNaN(userInput) && isNaN(output)) newCalculation = calculation.substring(0, calculation.length - 1) + userInput;
+      else newCalculation = calculation + userInput;
     }
-    this.setState({ calculation, justCalculated, output });
+
+    this.setState({ calculation: newCalculation, justCalculated, output: newOutput });
   }
 
   handleClearClick() {
-    let calculation = "0";
+    let calculation = "";
     let output = 0;
     let justCalculated = false;
     this.setState({ calculation, output, justCalculated });
@@ -58,14 +78,14 @@ class Calculator extends React.Component {
           <tbody>
           <tr>
             <td colSpan="2" ><Key id="clear" text="AC" onClick={ this.handleClearClick } /></td>
-            <td><Key id="devide" text="/" onClick={ this.handleClick } /></td>
+            <td><Key id="divide" text="/" onClick={ this.handleClick } /></td>
             <td><Key id="multiply" text="x" onClick={ this.handleClick } /></td>
           </tr>
           <tr>
             <td><Key id="seven" text="7" onClick={ this.handleClick } /></td>
             <td><Key id="eight" text="8" onClick={ this.handleClick } /></td>
             <td><Key id="nine" text="9" onClick={ this.handleClick } /></td>
-            <td><Key id="substract" text="-" onClick={ this.handleClick } /></td>
+            <td><Key id="subtract" text="-" onClick={ this.handleClick } /></td>
           </tr>
           <tr>
             <td><Key id="four" text="4" onClick={ this.handleClick } /></td>
@@ -77,11 +97,11 @@ class Calculator extends React.Component {
             <td><Key id="one" text="1" onClick={ this.handleClick } /></td>
             <td><Key id="two" text="2" onClick={ this.handleClick } /></td>
             <td><Key id="three" text="3" onClick={ this.handleClick } /></td>
-            <td rowSpan="2" ><Key id="equal" text="=" onClick={ this.handleEqualClick } /></td>
+            <td rowSpan="2" ><Key id="equals" text="=" onClick={ this.handleEqualClick } /></td>
           </tr>
           <tr>
             <td colSpan="2" ><Key id="zero" text="0" onClick={ this.handleClick }  /></td>
-            <td><Key id="dot" text="." onClick={ this.handleClick } /></td>
+            <td><Key id="decimal" text="." onClick={ this.handleClick } /></td>
           </tr>
           </tbody>
         </table>

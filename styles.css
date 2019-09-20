@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Teko&display=swap");
 body {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -14,10 +14,10 @@ body {
 }
 
 .Calculator {
-  font-family: "Montserrat";
-  border: 2px solid lightblue;
-  width: 308px;
-  padding-bottom: 2px;
+  font-family: "Teko";
+  border: 2px solid lightslategray;
+  width: 300px;
+  padding: 2px 0;
   background-color: black;
   color: #fff;
 }
@@ -36,13 +36,30 @@ body {
   display: inline;
   text-align: right;
   margin: 2px 5px;
-  font-size: 1.4em;
+  font-size: 1.8em;
   font-weight: 400;
+}
+
+.Calculator .Calculator-display .Calculator-calculation {
+  font-size: 1.4em;
+  min-height: 1.5em;
+}
+
+.Calculator .Calculator-display .Calculator-output {
+  min-height: 1.2em;
 }
 
 .Calculator table {
   border-collapse: collapse;
   margin: 0 auto;
+}
+
+.Calculator tr {
+  border: 1px solid black;
+}
+
+.Calculator td {
+  padding: 0;
 }
 
 .Calculator .Key {
@@ -51,22 +68,22 @@ body {
   width: 73px;
   height: 50px;
   background-color: lightslategray;
-  border: 1px solid black;
+  border: 0px solid black;
   padding: 0;
   color: #fff;
 }
 
 #clear {
-  width: 148px;
+  width: 146.5px;
   background-color: brown;
 }
 
-#equal {
+#equals {
   height: 100px;
   background-color: steelblue;
 }
 
 #zero {
-  width: 148px;
+  width: 146.5px;
 }
 /*# sourceMappingURL=styles.css.map */
